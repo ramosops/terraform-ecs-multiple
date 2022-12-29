@@ -1,5 +1,5 @@
 resource "aws_ecs_cluster" "ecs_cluster" {
-  name = "ecs-cluster-${var.environment}"
+  name = "${var.environment}-ecs-cluster"
 }
 
 resource "aws_ecs_service" "frontend" {

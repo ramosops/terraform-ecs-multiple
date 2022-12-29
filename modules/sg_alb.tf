@@ -1,6 +1,6 @@
 //SECURITY GROUP FOR ALB
 resource "aws_security_group" "alb_public" {
-  name        = "secgrp-alb-${var.environment}-ecs"
+  name        = "${var.environment}-secgrp-alb-ecs"
   description = "Allow HTTP and HTTPS inbound Traffic"
   vpc_id      = data.aws_vpcs.vpc.ids[0]
   egress {
@@ -24,7 +24,7 @@ resource "aws_security_group" "alb_public" {
 }
 
 resource "aws_security_group" "alb_internal" {
-  name        = "secgrp-alb-internal-${var.environment}-ecs"
+  name        = "${var.environment}-secgrp-alb-internal-ecs"
   description = "Allow HTTP and HTTPS internal Traffic"
   vpc_id      = data.aws_vpcs.vpc.ids[0]
   egress {

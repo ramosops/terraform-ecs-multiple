@@ -1,5 +1,5 @@
 resource "aws_alb" "public_alb" {
-  name                             = "alb-public-${var.environment}-ecs-cluster"
+  name                             = "${var.environment}-alb-public-ecs-cluster"
   security_groups                  = [aws_security_group.alb_public.id]
   subnets                          = data.aws_subnets.public.ids[*]
   internal                         = false
@@ -9,7 +9,7 @@ resource "aws_alb" "public_alb" {
 }
 
 resource "aws_alb" "internal_alb" {
-  name                             = "alb-internal-${var.environment}-ecs-cluster"
+  name                             = "${var.environment}-alb-internal-ecs-cluster"
   security_groups                  = [aws_security_group.alb_internal.id]
   subnets                          = data.aws_subnets.private.ids[*]
   internal                         = true
