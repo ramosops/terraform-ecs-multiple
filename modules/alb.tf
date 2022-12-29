@@ -76,8 +76,8 @@ resource "aws_lb_listener" "listener_redirect" {
 
 resource "aws_alb_listener" "listener_public" {
   load_balancer_arn = aws_alb.public_alb.arn
-  port              = "80"
-  protocol          = "HTTP"
+  port              = "443"
+  protocol          = "HTTPS"
   ssl_policy        = "ELBSecurityPolicy-2016-08"
   certificate_arn   = var.certificate_ssl
   default_action {
